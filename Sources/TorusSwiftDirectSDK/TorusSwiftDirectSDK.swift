@@ -103,7 +103,7 @@ open class TorusSwiftDirectSDK{
                     data.removeValue(forKey: "tokenForKeys")
                     data.removeValue(forKey: "verifierId")
                     
-                    let extraParams = ["verifieridentifier": self.aggregateVerifierName, "verifier_id":verifierId] as [String : Any]
+                    let extraParams = ["verifier_id":verifierId] as [String : Any]
                     let buffer: Data = try! NSKeyedArchiver.archivedData(withRootObject: extraParams, requiringSecureCoding: false)
                     
                     return self.getEndpoints().then{ boolean in
@@ -128,7 +128,7 @@ open class TorusSwiftDirectSDK{
         let (tempPromise, seal) = Promise<[String:Any]>.pending()
         if let _ = self.subVerifierDetails.first{
             let data: [String:Any] = [:]
-            let extraParams: [String : Any] = ["verifieridentifier": self.aggregateVerifierName, "verifier_id":verifierId]
+            let extraParams: [String : Any] = ["verifier_id":verifierId]
             let buffer: Data = try! NSKeyedArchiver.archivedData(withRootObject: extraParams, requiringSecureCoding: false)
 
             self.getEndpoints().then { boolean in
