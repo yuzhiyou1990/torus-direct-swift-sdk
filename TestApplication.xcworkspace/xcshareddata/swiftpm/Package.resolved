@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/IBM-Swift/BlueECC.git",
         "state": {
           "branch": null,
-          "revision": "73f362cb0d9c5f1fd0089240d7b293cd2bff18db",
-          "version": "1.2.5"
+          "revision": "baf6ed3fc1a622675f0041b4aff7c02dd1a93818",
+          "version": "1.2.200"
         }
       },
       {
@@ -51,8 +51,8 @@
         "repositoryURL": "https://github.com/mxcl/PromiseKit.git",
         "state": {
           "branch": null,
-          "revision": "f6b15b7626a4399864ffa1d5ec2ed9cf0cea5556",
-          "version": "6.13.2"
+          "revision": "aea48ea1855f5d82e2dffa6027afce3aab8f3dd7",
+          "version": "6.13.3"
         }
       },
       {
@@ -84,11 +84,11 @@
       },
       {
         "package": "TorusUtils",
-        "repositoryURL": "https://github.com/torusresearch/torus-utils-swift",
+        "repositoryURL": "https://github.com/mathwallet/torus-utils-swift",
         "state": {
-          "branch": null,
-          "revision": "a8cfb5122c12626586369f9224816feec603b3c3",
-          "version": "0.0.22"
+          "branch": "bigint5",
+          "revision": "8c119effe0ae72f9ea9e3721f17043e78d36d4ae",
+          "version": null
         }
       },
       {
