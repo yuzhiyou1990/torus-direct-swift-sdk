@@ -51,9 +51,9 @@ struct ContentView: View {
                         let sub = SubVerifierDetails(loginType: .installed,
                                                      loginProvider: .google,
                                                      clientId: "466058994140-6fkq55j9gmh2rh8sigvgmnfomqn9n3v7.apps.googleusercontent.com",
-                                                     verifierName: "google",
+                                                     verifierName: "mathwallet-google-testnet",
                                                      redirectURL: "com.googleusercontent.apps.466058994140-6fkq55j9gmh2rh8sigvgmnfomqn9n3v7:/oauthredirect")
-                        let tdsdk = TorusSwiftDirectSDK(aggregateVerifierType: .singleIdVerifier, aggregateVerifierName: "mathwallet-google-testnet", subVerifierDetails: [sub], loglevel: .trace)
+                        let tdsdk = TorusSwiftDirectSDK(aggregateVerifierType: .singleLogin, aggregateVerifierName: "mathwallet-google-testnet", subVerifierDetails: [sub], loglevel: .trace)
                         tdsdk.triggerLogin(browserType: .external).done{ data in
                             print("private key rebuild", data)
                         }.catch{ err in
