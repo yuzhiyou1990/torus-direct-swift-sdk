@@ -21,30 +21,30 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             List {
-//                Section(header: Text("Single Logins")) {
-//                    Group{
-//                        Button(action: {
-//                            let sub = SubVerifierDetails(loginType: .web,
-//                                                         loginProvider: .wechat,
-//                                                         clientId: "cewDD3i6F1vtHeV1KIbaxUZ8vJQjJZ8V",
-//                                                         verifierName: "torus-auth0-wechat-lrc",
-//                                                         redirectURL: "tdsdk://tdsdk/oauthCallback",
-//                                                         jwtParams: ["domain":"torus-test.auth0.com"])
-//
-//                            let tdsdk = TorusSwiftDirectSDK(aggregateVerifierType: .singleLogin, aggregateVerifierName: "torus-auth0-wechat-lrc", subVerifierDetails: [sub], loglevel: .trace)
-//                            tdsdk.triggerLogin(browserType: .external).done{ data in
-//                                print("private key rebuild", data)
-//                            }.catch{ err in
-//                                print(err)
-//                            }
-//                        }, label: {
-//                            Text("Wechat Login")
-//                        })
-//
-//                    }
-//
-//
-//                }
+                Section(header: Text("Single Logins")) {
+                    Group{
+                        Button(action: {
+                            let sub = SubVerifierDetails(loginType: .web,
+                                                         loginProvider: .wechat,
+                                                         clientId: "JmKpHktqtMtiMsUgHsqsjosn5omNBLBS",
+                                                         verifierName: "torus-auth0-wechat-lrc",
+                                                         redirectURL: "tdsdk://tdsdk/oauthCallback",
+                                                         jwtParams: ["domain":"zhiyou.us.auth0.com"])
+
+                            let tdsdk = TorusSwiftDirectSDK(aggregateVerifierType: .singleLogin, aggregateVerifierName: "torus-auth0-wechat-lrc", subVerifierDetails: [sub], loglevel: .trace)
+                            tdsdk.triggerLogin(browserType: .external).done{ data in
+                                print("private key rebuild", data)
+                            }.catch{ err in
+                                print(err)
+                            }
+                        }, label: {
+                            Text("Wechat Login")
+                        })
+
+                    }
+
+
+                }
 //
                 Section(header: Text("Single ID verifier")){
                     Button(action: {

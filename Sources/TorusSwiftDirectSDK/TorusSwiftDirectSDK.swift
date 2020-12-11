@@ -81,7 +81,8 @@ open class TorusSwiftDirectSDK{
             return Promise(error: TSDSError.methodUnavailable)
         }
     }
-    public func handleSingleLogins(controller: UIViewController?) -> Promise<[String:Any]>{
+    
+    func handleSingleLogins(controller: UIViewController?) -> Promise<[String:Any]>{
         let (tempPromise, seal) = Promise<[String:Any]>.pending()
         if let subVerifier = self.subVerifierDetails.first{
             let loginURL = subVerifier.getLoginURL()
@@ -124,23 +125,26 @@ open class TorusSwiftDirectSDK{
         return tempPromise
     }
     
-    public func handleSingleLogins(verifierId: String, idToken: String) -> Promise<[String:Any]>{
+    /// SignleLogin
+    /// - Parameters:
+    ///   - verifierId:  google email、wechat unionId
+    ///   - idToken: JWT Token
+    /// - Returns: Key Data (privateKey)
+    public func handleSingleLogin(verifierId: String, idToken: String) -> Promise<[String:Any]>{
         let (tempPromise, seal) = Promise<[String:Any]>.pending()
-        if let _ = self.subVerifierDetails.first{
-            let data: [String:Any] = [:]
-            let extraParams: [String : Any] = ["verifier_id":verifierId]
-            let buffer: Data = try! NSKeyedArchiver.archivedData(withRootObject: extraParams, requiringSecureCoding: false)
+        let data: [String:Any] = [:]
+        let extraParams: [String : Any] = ["verifier_id":verifierId]
+        let buffer: Data = try! NSKeyedArchiver.archivedData(withRootObject: extraParams, requiringSecureCoding: false)
 
-            self.getEndpoints().then { boolean in
-                return self.torusUtils.retrieveShares(endpoints: self.endpoints, verifierIdentifier: self.aggregateVerifierName, verifierId: verifierId, idToken: idToken, extraParams: buffer).map{ ($0, data)}
-            }.done { privateKey, newData in
-                var data = newData
-                data["privateKey"] = privateKey
-                seal.fulfill(data)
-            }.catch{err in
-                print("err in ", err)
-                seal.reject(err)
-            }
+        self.getEndpoints().then { boolean in
+            return self.torusUtils.retrieveShares(endpoints: self.endpoints, verifierIdentifier: self.aggregateVerifierName, verifierId: verifierId, idToken: idToken, extraParams: buffer).map{ ($0, data)}
+        }.done { privateKey, newData in
+            var data = newData
+            data["privateKey"] = privateKey
+            seal.fulfill(data)
+        }.catch{err in
+            print("err in ", err)
+            seal.reject(err)
         }
         return tempPromise
     }

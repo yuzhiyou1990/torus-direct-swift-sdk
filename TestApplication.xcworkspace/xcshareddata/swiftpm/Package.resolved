@@ -84,10 +84,10 @@
       },
       {
         "package": "TorusUtils",
-        "repositoryURL": "https://github.com/mathwallet/torus-utils-swift",
+        "repositoryURL": "https://github.com/torusresearch/torus-utils-swift",
         "state": {
           "branch": "master",
-          "revision": "839dbe2cacf912ce23fb73501381ba19ede0e588",
+          "revision": "0ef96b4a0856f5d4c307bfec8c12d54a20812e6b",
           "version": null
         }
       },
